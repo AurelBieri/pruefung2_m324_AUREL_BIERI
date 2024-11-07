@@ -44,7 +44,6 @@ jobs:
         uses: your-username/ai-code-reviewer@main
         with:
           OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           open_ai_model: gpt-3.5-turbo
           exclude: "**/*.json, **/*.md" 
           with-comment: true
