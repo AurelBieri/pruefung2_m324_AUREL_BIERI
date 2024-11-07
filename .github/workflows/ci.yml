@@ -33,3 +33,18 @@ jobs:
         uses: davidanson/duplicate-package-checker-action@v5
         with:
           fail-on-mismatch: false
+
+  ai-code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: AI Code Reviewer
+        uses: your-username/ai-code-reviewer@main
+        with:
+          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          open_ai_model: gpt-3.5-turbo
+          exclude: "**/*.json, **/*.md" 
+          with-comment: true
