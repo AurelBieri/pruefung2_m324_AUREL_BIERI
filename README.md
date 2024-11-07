@@ -1,1 +1,0 @@
-# pruefung2_m324_AUREL_BIERI

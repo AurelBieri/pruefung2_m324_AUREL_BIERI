@@ -7,10 +7,10 @@ on:
 
 jobs:
   lint-format-test:
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v14
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -18,7 +18,7 @@ jobs:
           node-version: '18.x'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run linter
         run: npm run lint
@@ -28,3 +28,22 @@ jobs:
 
       - name: Run tests
         run: npm test
+      
+      - name: Check for mismatched dependencies
+        uses: davidanson/duplicate-package-checker-action@v5
+        with:
+          fail-on-mismatch: false
+
+  ai-code-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: AI Code Reviewer
+        uses: AurelBieri/ai-code-reviewer@main
+        with:
+          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+          open_ai_model: gpt-3.5-turbo
+          exclude: "**/*.json, **/*.md" 
+          with-comment: true

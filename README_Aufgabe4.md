@@ -1,0 +1,1 @@
+Ich habe eine Github Action hinzugefügt, welche schaut ob die package.json und die package-lock.json synchron sind. Die Action gibt eine Warnung aus, wenn sie es nicht sind. Dies hilft dabei, sicherzustellen, dass alle Abhängigkeiten korrekt installiert sind.
