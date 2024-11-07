@@ -29,7 +29,9 @@ jobs:
       - name: Run tests
         run: npm test
       
-      - name: Check for mismatched dependencies
-        uses: davidanson/duplicate-package-checker-action@v5
-        with:
-          fail-on-mismatch: false
+      - name: Get Git revision
+        uses: stefanprodan/git-rev@v1
+        id: git-rev
+
+      - name: Show Git revision
+        run: echo "Current git revision is ${{ steps.git-rev.outputs.rev }}"
