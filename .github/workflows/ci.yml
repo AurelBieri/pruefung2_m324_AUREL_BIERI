@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: AI Code Reviewer
-        uses: your-username/ai-code-reviewer@main
+        uses: AurelBieri/ai-code-reviewer@main
         with:
           OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
           open_ai_model: gpt-3.5-turbo
